@@ -5,3 +5,4 @@ export { default as NavLinks } from './NavLinks.tsx';
 export { default as ModeToggle } from './ModeToggle.tsx';
 export { default as CartButton } from './CartButton.tsx';
 export { default as LinksDropDown } from './LinksDropDown.tsx';
+export { default as ErrorElement } from './ErrorElement.tsx';
