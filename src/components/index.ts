@@ -6,3 +6,8 @@ export { default as ModeToggle } from './Navbar/ModeToggle.tsx';
 export { default as CartButton } from './Navbar/CartButton.tsx';
 export { default as LinksDropDown } from './Navbar/LinksDropDown.tsx';
 export { default as ErrorElement } from './ErrorElement.tsx';
+export { default as Hero } from './Hero/Hero.tsx';
+export { default as FeaturedProducts } from './FeaturedProducts/FeaturedProducts.tsx';
+export { default as HeroCarousel } from './Hero/HeroCarousel.tsx';
+export { default as ProductsGrid } from './FeaturedProducts/ProductsGrid.tsx';
+export { default as SectionTitle } from './SectionTitle.tsx';

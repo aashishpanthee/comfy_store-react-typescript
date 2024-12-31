@@ -14,6 +14,7 @@ import {
   About,
 } from '../pages';
 import { ErrorElement } from '@/components';
+import { loader as LandingPageLoader } from '../pages/Landing';
 export const routes = createBrowserRouter([
   {
     path: '/',
@@ -24,6 +25,7 @@ export const routes = createBrowserRouter([
         index: true,
         element: React.createElement(Landing),
         errorElement: React.createElement(ErrorElement),
+        loader: LandingPageLoader,
       },
       {
         path: 'products',
