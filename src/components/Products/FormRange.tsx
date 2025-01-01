@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { formatAsDollars } from '@/utils';
 import { Label } from '@/components/ui/label';
-import { Slider } from './ui/slider';
+import { Slider } from '@/components/ui/slider';
 
 type FormRangeProps = {
   name: string;
