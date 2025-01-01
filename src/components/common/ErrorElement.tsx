@@ -1,9 +1,8 @@
 import { useRouteError } from 'react-router-dom';
-type Props = {};
 
-function ErrorElement({}: Props) {
+function ErrorElement() {
   const error = useRouteError();
-  console.log(error, 'hehe');
+  console.log(error);
   return <div className='font-bold text-4xl'> There was an error....</div>;
 }
 

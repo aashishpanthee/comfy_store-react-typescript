@@ -1,5 +1,5 @@
-import ProductsGrid from './ProductsGrid';
-import SectionTitle from '../SectionTitle';
+import ProductsGrid from '../common/ProductsGrid';
+import SectionTitle from '../common/SectionTitle';
 const FeaturedProducts = () => {
   return (
     <section className='pt-24 '>

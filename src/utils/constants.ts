@@ -9,4 +9,5 @@ export const HERO3 = hero3;
 export const HERO4 = hero4;
 
 export const FEATURED_PRODUCTS_URL = '/products?featured=true';
+export const PRODUCTS_URL = '/products';
 export const PRODUCTION_URL = 'https://strapi-store-server.onrender.com/api';

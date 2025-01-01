@@ -15,6 +15,7 @@ import {
 } from '../pages';
 import { ErrorElement } from '@/components';
 import { loader as LandingPageLoader } from '../pages/Landing';
+import { loader as ProductsLoader } from '../pages/Products';
 export const routes = createBrowserRouter([
   {
     path: '/',
@@ -31,6 +32,7 @@ export const routes = createBrowserRouter([
         path: 'products',
         element: React.createElement(Products),
         errorElement: React.createElement(ErrorElement),
+        loader: ProductsLoader,
       },
       {
         path: 'products/:id',
