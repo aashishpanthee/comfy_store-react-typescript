@@ -15,3 +15,7 @@ export { default as PaginationContainer } from './Products/PaginationContainer.t
 export { default as ProductsContainer } from './Products/ProductsContainer.tsx';
 export { default as Filters } from './Products/Filters.tsx';
 export { default as ProductsList } from './common/ProductsList.tsx';
+export { default as FormInput } from './FormInput.tsx';
+export { default as FormSelect } from './FormSelect.tsx';
+export { default as FormRange } from './FormRange.tsx';
+export { default as FormCheckbox } from './FormCheckbox.tsx';
