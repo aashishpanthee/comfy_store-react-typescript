@@ -19,3 +19,5 @@ export { default as FormInput } from './Products/FormInput.tsx';
 export { default as FormSelect } from './Products/FormSelect.tsx';
 export { default as FormRange } from './Products/FormRange.tsx';
 export { default as FormCheckbox } from './Products/FormCheckbox.tsx';
+export { default as SelectProductAmount } from './Single_Product/SelectProductAmount.tsx';
+export { default as SelectProductColor } from './Single_Product/SelectProductColor.tsx';
