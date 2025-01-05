@@ -17,6 +17,10 @@ import { ErrorElement } from '@/components';
 import { loader as LandingPageLoader } from '../pages/Landing';
 import { loader as ProductsLoader } from '../pages/Products';
 import { loader as SingleProductLoader } from '../pages/SingleProduct';
+//actions
+import { action as registerUser } from '@/pages/Register';
+import { action as loginUser } from '@/pages/Login';
+import { store } from '@/redux-store/store';
 export const routes = createBrowserRouter([
   {
     path: '/',
@@ -67,10 +71,12 @@ export const routes = createBrowserRouter([
     path: '/register',
     element: React.createElement(Register),
     errorElement: React.createElement(Error),
+    action: registerUser,
   },
   {
     path: '/login',
     element: React.createElement(Login),
     errorElement: React.createElement(Error),
+    action: loginUser(store),
   },
 ]);

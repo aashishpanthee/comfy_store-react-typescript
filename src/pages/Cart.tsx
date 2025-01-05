@@ -4,9 +4,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 
 const Cart = () => {
-  // temp
-  const user = null;
-  // const user = true;
+  const user = useAppSelector((store) => store.userState.user);
 
   const numItemsInCart = useAppSelector(
     (store) => store.cartState.numItemsInCart

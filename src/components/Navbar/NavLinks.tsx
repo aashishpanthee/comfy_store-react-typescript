@@ -1,11 +1,15 @@
 import { links } from '@/utils';
 import { NavLink } from 'react-router-dom';
-type NavLinksProps = {};
+import { useAppSelector } from '@/redux-store/hooks';
 
-function NavLinks({}: NavLinksProps) {
+function NavLinks() {
+  const user = useAppSelector((store) => store.userState.user);
   return (
-    <div className='hidden lg:flex justify-center items-center gap-x-4'>
+    <div className='items-center justify-center hidden lg:flex gap-x-4'>
       {links.map((link) => {
+        const restrictedRoutes =
+          link.href === 'checkout' || link.href === 'orders';
+        if (restrictedRoutes && !user) return null;
         return (
           <NavLink
             to={link.href}

@@ -8,10 +8,10 @@ import {
 } from '../ui/dropdown-menu';
 import { links } from '@/utils';
 import { NavLink } from 'react-router-dom';
+import { useAppSelector } from '@/redux-store/hooks';
 
-type Props = {};
-
-function LinksDropDown({}: Props) {
+function LinksDropDown() {
+  const user = useAppSelector((store) => store.userState.user);
   return (
     <div>
       <DropdownMenu>
@@ -27,6 +27,9 @@ function LinksDropDown({}: Props) {
           sideOffset={25}
         >
           {links.map((link) => {
+            const restrictedRoutes =
+              link.href === 'checkout' || link.href === 'orders';
+            if (restrictedRoutes && !user) return null;
             return (
               <DropdownMenuItem key={link.label}>
                 <NavLink

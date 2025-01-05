@@ -18,7 +18,7 @@ const getCartFromLocalStorage = (): CartState => {
 
 const cartSlice = createSlice({
   name: 'user',
-  initialState,
+  initialState: getCartFromLocalStorage(),
   reducers: {
     addItems: (state, action: PayloadAction<CartItem>) => {
       const newCartItem = action.payload;

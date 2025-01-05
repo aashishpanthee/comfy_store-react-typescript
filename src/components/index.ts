@@ -23,3 +23,4 @@ export { default as SelectProductAmount } from './common/SelectProductAmount.tsx
 export { default as SelectProductColor } from './common/SelectProductColor.tsx';
 export { default as CartTotals } from './Cart/CartTotals.tsx';
 export { default as CartItemsList } from './Cart/CartItemsList.tsx';
+export { default as SubmitBtn } from './common/SubmitBtn.tsx';
