@@ -4,17 +4,19 @@ import {
   formatAsDollars,
   PRODUCTS_URL,
   type SingleProductResponse,
+  type CartItem,
 } from '@/utils';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { axiosInstance } from '@/config';
 import { SelectProductAmount, SelectProductColor } from '@/components';
-import { Mode } from '@/components/Single_Product/SelectProductAmount';
+import { Mode } from '@/components/common/SelectProductAmount';
+import { useAppDispatch } from '@/redux-store/hooks';
+import { addItems } from '@/redux-store/cart/cartSlice';
 
 export const loader: LoaderFunction = async ({
   params,
 }): Promise<SingleProductResponse> => {
-  console.log(params);
   const { id } = params;
   const { data } = await axiosInstance.get<SingleProductResponse>(
     `${PRODUCTS_URL}/${id}`
@@ -24,6 +26,7 @@ export const loader: LoaderFunction = async ({
 
 const SingleProduct = () => {
   const { data: product } = useLoaderData() as SingleProductResponse;
+  const dispatch = useAppDispatch();
   const {
     image,
     category,
@@ -39,12 +42,23 @@ const SingleProduct = () => {
   const [productColor, setProductColor] = useState(colors[0]);
   const [amount, setAmount] = useState(1);
 
+  const cartProduct: CartItem = {
+    cartID: product.id + productColor,
+    productID: product.id,
+    image,
+    title,
+    price,
+    amount,
+    productColor,
+    company,
+  };
+
   const addToCart = () => {
-    console.log('add to cart');
+    dispatch(addItems(cartProduct));
   };
   return (
     <section>
-      <div className='flex gap-x-2 h-6 items-center'>
+      <div className='flex items-center h-6 gap-x-2'>
         <Button asChild variant='link' size='sm'>
           <Link to='/'>Home</Link>
         </Button>
@@ -54,16 +68,16 @@ const SingleProduct = () => {
         </Button>
       </div>
       {/* PRODUCT */}
-      <div className='mt-6 grid gap-y-8 lg:grid-cols-2  lg:gap-x-16'>
+      <div className='grid mt-6 gap-y-8 lg:grid-cols-2 lg:gap-x-16'>
         <img
           src={image}
           alt={title}
-          className='w-96 h-96 object-cover rounded-lg lg:w-full'
+          className='object-cover rounded-lg w-96 h-96 lg:w-full'
         />
         <div>
-          <h1 className='capitalize text-3xl font-bold'>{title}</h1>
-          <h4 className='text-xl mt-2'>{company}</h4>
-          <p className='mt-3 text-md bg-muted inline-block p-2 rounded-md'>
+          <h1 className='text-3xl font-bold capitalize'>{title}</h1>
+          <h4 className='mt-2 text-xl'>{company}</h4>
+          <p className='inline-block p-2 mt-3 rounded-md text-md bg-muted'>
             {dollarsAmount}
           </p>
           <p className='mt-6 leading-8'>{description}</p>

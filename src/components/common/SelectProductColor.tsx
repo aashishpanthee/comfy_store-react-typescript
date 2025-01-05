@@ -11,7 +11,7 @@ const SelectProductColor = ({
 }: SelectProductColorProps) => {
   return (
     <div className='mt-6'>
-      <h4 className='text-md font-medium tracking-wider capitalize'>colors</h4>
+      <h4 className='font-medium tracking-wider capitalize text-md'>colors</h4>
 
       <div className='mt-2'>
         {colors.map((color) => {

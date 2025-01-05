@@ -1,22 +1,23 @@
 import { Button } from '../ui/button';
 import { ShoppingCart } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useAppSelector } from '@/redux-store/hooks';
 
 type Props = {};
 
 function CartButton({}: Props) {
-  const numItemsInCart = 5;
+  const { numItemsInCart } = useAppSelector((store) => store.cartState);
 
   return (
     <Button
       asChild
       variant='outline'
       size='icon'
-      className='flex justify-center items-center relative'
+      className='relative flex items-center justify-center'
     >
       <Link to='/cart'>
         <ShoppingCart />
-        <span className='absolute -top-3 -right-3 bg-primary text-white rounded-full h-6 w-6 flex items-center justify-center text-xs'>
+        <span className='absolute flex items-center justify-center w-6 h-6 text-xs text-white rounded-full -top-3 -right-3 bg-primary'>
           {numItemsInCart}
         </span>
       </Link>
