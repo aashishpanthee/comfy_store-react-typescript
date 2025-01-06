@@ -25,3 +25,5 @@ export { default as CartTotals } from './Cart/CartTotals.tsx';
 export { default as CartItemsList } from './Cart/CartItemsList.tsx';
 export { default as SubmitBtn } from './common/SubmitBtn.tsx';
 export { default as CheckoutForm } from './Checkout/CheckoutForm.tsx';
+export { default as ComplexPaginationContainer } from './common/ComplexPaginationContainer.tsx';
+export { default as OrdersList } from './Orders/OrdersList.tsx';

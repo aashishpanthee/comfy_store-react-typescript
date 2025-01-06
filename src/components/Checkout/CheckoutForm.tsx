@@ -11,7 +11,7 @@ export const action =
   async ({ request }) => {
     const formData = await request.formData();
     const name = formData.get('name') as string;
-    const address = formData.get('name') as string;
+    const address = formData.get('address') as string;
 
     if (!name || !address) {
       toast({ description: 'please fill out all fields' });
