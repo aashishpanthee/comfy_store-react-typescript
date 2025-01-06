@@ -5,10 +5,10 @@ import { FormInput, FormSelect, FormRange, FormCheckbox } from '..';
 
 function Filters() {
   const { meta, params } = useLoaderData() as ProductsResponseWithParams;
-  const { search, category, company, order, price, shipping, page } = params;
+  const { search, category, company, order, price, shipping } = params;
 
   return (
-    <Form className='border rounded-md px-8 py-4 grid gap-x-4 gap-y-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-center'>
+    <Form className='grid items-center px-8 py-4 border rounded-md gap-x-4 gap-y-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
       <FormInput
         type='text'
         name='search'
