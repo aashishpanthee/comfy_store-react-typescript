@@ -17,9 +17,11 @@ import { ErrorElement } from '@/components';
 import { loader as LandingPageLoader } from '../pages/Landing';
 import { loader as ProductsLoader } from '../pages/Products';
 import { loader as SingleProductLoader } from '../pages/SingleProduct';
+import { loader as CheckoutLoader } from '../pages/Checkout';
 //actions
 import { action as registerUser } from '@/pages/Register';
 import { action as loginUser } from '@/pages/Login';
+import { action as checkoutAction } from '@/components/Checkout/CheckoutForm';
 import { store } from '@/redux-store/store';
 export const routes = createBrowserRouter([
   {
@@ -59,6 +61,8 @@ export const routes = createBrowserRouter([
         path: '/checkout',
         element: React.createElement(Checkout),
         errorElement: React.createElement(ErrorElement),
+        loader: CheckoutLoader(store),
+        action: checkoutAction(store),
       },
       {
         path: '/orders',
