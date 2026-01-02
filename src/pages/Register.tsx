@@ -1,10 +1,12 @@
-import { ActionFunction, Form, Link, redirect } from 'react-router-dom';
-import { Card, CardHeader, CardContent, CardTitle } from '@/components/ui/card';
+import { FormInput, SubmitBtn } from '@/components';
 import { Button } from '@/components/ui/button';
-import { SubmitBtn, FormInput } from '@/components';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { axiosInstance } from '@/config';
 import { toast } from '@/hooks/use-toast';
+import { useFormValidation } from '@/hooks/useFormValidation';
+import { registerValidationRules } from '@/utils/validation/registerValidation';
 import { AxiosError } from 'axios';
+import { ActionFunction, Form, Link, redirect } from 'react-router-dom';
 
 export const action: ActionFunction = async ({
   request,
@@ -32,6 +34,8 @@ export const action: ActionFunction = async ({
 };
 
 function Register() {
+  const { errors, touched, handleBlur, handleSubmit } = useFormValidation(registerValidationRules);
+
   return (
     <section className='grid h-screen place-items-center'>
       <Card className='w-96 bg-muted'>
@@ -39,10 +43,37 @@ function Register() {
           <CardTitle className='text-center'>Register</CardTitle>
         </CardHeader>
         <CardContent>
-          <Form method='post'>
-            <FormInput type='text' name='username' />
-            <FormInput type='email' name='email' />
-            <FormInput type='password' name='password' />
+          <Form method='post' onSubmit={handleSubmit}>
+            <div>
+              <FormInput
+                type='text'
+                name='username'
+                onBlur={handleBlur}
+              />
+              {touched.username && errors.username && (
+                <p className='mt-1 text-sm text-red-500'>{errors.username}</p>
+              )}
+            </div>
+            <div>
+              <FormInput
+                type='email'
+                name='email'
+                onBlur={handleBlur}
+              />
+              {touched.email && errors.email && (
+                <p className='mt-1 text-sm text-red-500'>{errors.email}</p>
+              )}
+            </div>
+            <div>
+              <FormInput
+                type='password'
+                name='password'
+                onBlur={handleBlur}
+              />
+              {touched.password && errors.password && (
+                <p className='mt-1 text-sm text-red-500'>{errors.password}</p>
+              )}
+            </div>
 
             <SubmitBtn text='Register' className='w-full mt-4' />
 
