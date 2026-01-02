@@ -6,7 +6,7 @@ import { toast } from '@/hooks/use-toast';
 import { useFormValidation } from '@/hooks/useFormValidation';
 import { registerValidationRules } from '@/utils/validation/registerValidation';
 import { AxiosError } from 'axios';
-import { ActionFunction, Form, Link, redirect } from 'react-router-dom';
+import { ActionFunction, Form, Link, redirect, useActionData } from 'react-router-dom';
 
 export const action: ActionFunction = async ({
   request,
@@ -28,13 +28,17 @@ export const action: ActionFunction = async ({
 
     toast({
       description: errorMesg,
+      variant: 'destructive',
     });
-    return null;
+
+    // Return error to display in form
+    return { error: errorMesg };
   }
 };
 
 function Register() {
   const { errors, touched, handleBlur, handleSubmit } = useFormValidation(registerValidationRules);
+  const actionData = useActionData() as { error?: string } | undefined;
 
   return (
     <section className='grid h-screen place-items-center'>
@@ -74,7 +78,11 @@ function Register() {
                 <p className='mt-1 text-sm text-red-500'>{errors.password}</p>
               )}
             </div>
-
+            {actionData?.error && (
+              <div className='text-sm text-red-500 '>
+                {actionData.error}
+              </div>
+            )}
             <SubmitBtn text='Register' className='w-full mt-4' />
 
             <p className='mt-4 text-center'>
