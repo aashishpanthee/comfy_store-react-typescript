@@ -3,9 +3,11 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { axiosInstance } from '@/config';
 import { toast } from '@/hooks/use-toast';
+import { useFormValidation } from '@/hooks/useFormValidation';
 import { useAppDispatch } from '@/redux-store/hooks';
 import { type ReduxStore } from '@/redux-store/store';
 import { loginUser } from '@/redux-store/user/userSlice';
+import { loginValidationRules } from '@/utils/validation/loginValidation';
 import { AxiosError, AxiosResponse } from 'axios';
 import {
   Form,
@@ -48,6 +50,7 @@ function Login() {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const actionData = useActionData() as { error?: string } | undefined;
+  const { errors, touched, handleBlur, handleSubmit } = useFormValidation(loginValidationRules);
 
   const loginAsGuestUser = async (): Promise<void> => {
     try {
@@ -71,9 +74,29 @@ function Login() {
           <CardTitle className='text-center'>Login</CardTitle>
         </CardHeader>
         <CardContent>
-          <Form method='POST'>
-            <FormInput type='email' label='email' name='identifier' />
-            <FormInput type='password' name='password' />
+          <Form method='POST' onSubmit={handleSubmit}>
+
+            <div>
+              <FormInput
+                type='email'
+                label='email'
+                name='identifier'
+                onBlur={handleBlur}
+              />
+              {touched.identifier && errors.identifier && (
+                <p className='mt-1 text-sm text-red-500'>{errors.identifier}</p>
+              )}
+            </div>
+            <div>
+              <FormInput
+                type='password'
+                name='password'
+                onBlur={handleBlur}
+              />
+              {touched.password && errors.password && (
+                <p className='mt-1 text-sm text-red-500'>{errors.password}</p>
+              )}
+            </div>
             {actionData?.error && (
               <div className='text-sm text-red-500 '>
                 {actionData.error}
