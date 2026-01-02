@@ -10,7 +10,7 @@ import { ActionFunction, Form, Link, redirect, useActionData } from 'react-route
 
 export const action: ActionFunction = async ({
   request,
-}): Promise<Response | null> => {
+}): Promise<Response | { error: string } | null> => {
   const formData = await request.formData();
   const data = Object.fromEntries(formData);
   try {
@@ -30,8 +30,6 @@ export const action: ActionFunction = async ({
       description: errorMesg,
       variant: 'destructive',
     });
-
-    // Return error to display in form
     return { error: errorMesg };
   }
 };
