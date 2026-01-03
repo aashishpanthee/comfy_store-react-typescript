@@ -1,5 +1,5 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { toast } from '@/hooks/use-toast';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export type User = {
   username: string;
@@ -27,12 +27,6 @@ const userSlice = createSlice({
       const user = action.payload;
       state.user = user;
       localStorage.setItem('user', JSON.stringify(user));
-      if (user.username === 'demo user') {
-        toast({
-          description: 'Welcome Guest User',
-        });
-        return;
-      }
       toast({
         description: 'Login successful',
       });

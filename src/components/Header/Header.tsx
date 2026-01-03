@@ -1,13 +1,13 @@
+import { useToast } from '@/hooks/use-toast';
+import { clearCart } from '@/redux-store/cart/cartSlice';
+import { useAppDispatch, useAppSelector } from '@/redux-store/hooks';
+import { logoutUser } from '@/redux-store/user/userSlice';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '../ui/button';
-import { useAppDispatch, useAppSelector } from '@/redux-store/hooks';
-import { useToast } from '@/hooks/use-toast';
-import { logoutUser } from '@/redux-store/user/userSlice';
-import { clearCart } from '@/redux-store/cart/cartSlice';
 
 type Props = {};
 
-function Header({}: Props) {
+function Header({ }: Props) {
   const user = useAppSelector((store) => store.userState.user);
   const dispatch = useAppDispatch();
   const { toast } = useToast();
@@ -36,10 +36,10 @@ function Header({}: Props) {
         ) : (
           <div className='flex items-center justify-center -mr-4 gap-x-6'>
             <Button asChild variant='link' size='sm'>
-              <Link to='/login'>Sign in / Guest</Link>
+              <Link to='/register'>Sign up</Link>
             </Button>
             <Button asChild variant='link' size='sm'>
-              <Link to='/register'>Register</Link>
+              <Link to='/login'>Login</Link>
             </Button>
           </div>
         )}
