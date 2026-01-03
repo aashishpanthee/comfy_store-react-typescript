@@ -71,6 +71,7 @@ Comfy Store is a full-stack e-commerce application that demonstrates modern web 
 ### Styling & UI
 
 - **Tailwind CSS 3.4.17** - Utility-first CSS framework
+- **Shadcn** - Beautiful, Easy to Customize UI Components platform
 - **Radix UI** - Unstyled, accessible component library
 - **Lucide React** - Beautiful SVG icon library
 - **Embla Carousel** - Responsive carousel library
