@@ -1,6 +1,6 @@
-import { links } from '@/utils';
-import { NavLink } from 'react-router-dom';
+import { links } from '@/constants/links';
 import { useAppSelector } from '@/redux-store/hooks';
+import { NavLink } from 'react-router-dom';
 
 function NavLinks() {
   const user = useAppSelector((store) => store.userState.user);
@@ -15,9 +15,8 @@ function NavLinks() {
             to={link.href}
             key={link.label}
             className={({ isActive }) => {
-              return `capitalize font-light tracking-wide ${
-                isActive ? 'text-primary' : ''
-              }`;
+              return `capitalize font-light tracking-wide ${isActive ? 'text-primary' : ''
+                }`;
             }}
           >
             {link.label}

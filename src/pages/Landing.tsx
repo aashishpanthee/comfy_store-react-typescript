@@ -1,7 +1,8 @@
-import { Hero, FeaturedProducts } from '@/components';
-import { LoaderFunction } from 'react-router-dom';
+import { FeaturedProducts, Hero } from '@/components';
 import { axiosInstance } from '@/config';
-import { FEATURED_PRODUCTS_URL, type ProductsResponse } from '@/utils';
+import { FEATURED_PRODUCTS_URL } from '@/constants/url';
+import { type ProductsResponse } from '@/utils';
+import { LoaderFunction } from 'react-router-dom';
 
 export const loader: LoaderFunction = async (): Promise<ProductsResponse> => {
   const featuredProductsResponse = await axiosInstance.get<ProductsResponse>(

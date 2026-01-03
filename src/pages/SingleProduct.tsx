@@ -1,18 +1,18 @@
-import { useState } from 'react';
-import { useLoaderData, Link, type LoaderFunction } from 'react-router-dom';
-import {
-  formatAsDollars,
-  PRODUCTS_URL,
-  type SingleProductResponse,
-  type CartItem,
-} from '@/utils';
+import { SelectProductAmount, SelectProductColor } from '@/components';
+import { Mode } from '@/components/common/SelectProductAmount';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { axiosInstance } from '@/config';
-import { SelectProductAmount, SelectProductColor } from '@/components';
-import { Mode } from '@/components/common/SelectProductAmount';
-import { useAppDispatch } from '@/redux-store/hooks';
+import { PRODUCTS_URL } from '@/constants/url';
 import { addItems } from '@/redux-store/cart/cartSlice';
+import { useAppDispatch } from '@/redux-store/hooks';
+import {
+  formatAsDollars,
+  type CartItem,
+  type SingleProductResponse,
+} from '@/utils';
+import { useState } from 'react';
+import { Link, useLoaderData, type LoaderFunction } from 'react-router-dom';
 
 export const loader: LoaderFunction = async ({
   params,

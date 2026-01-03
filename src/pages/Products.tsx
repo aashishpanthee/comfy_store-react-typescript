@@ -1,11 +1,11 @@
-import { LoaderFunction } from 'react-router-dom';
 import { Filters, PaginationContainer, ProductsContainer } from '@/components';
 import { axiosInstance } from '@/config';
+import { PRODUCTS_URL } from '@/constants/url';
 import {
-  PRODUCTS_URL,
   type ProductsResponse,
   type ProductsResponseWithParams,
 } from '@/utils';
+import { LoaderFunction } from 'react-router-dom';
 
 export const loader: LoaderFunction = async ({
   request,

@@ -1,4 +1,7 @@
+import { links } from '@/constants/links';
+import { useAppSelector } from '@/redux-store/hooks';
 import { AlignLeft } from 'lucide-react';
+import { NavLink } from 'react-router-dom';
 import { Button } from '../ui/button';
 import {
   DropdownMenu,
@@ -6,9 +9,6 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '../ui/dropdown-menu';
-import { links } from '@/utils';
-import { NavLink } from 'react-router-dom';
-import { useAppSelector } from '@/redux-store/hooks';
 
 function LinksDropDown() {
   const user = useAppSelector((store) => store.userState.user);
@@ -35,9 +35,8 @@ function LinksDropDown() {
                 <NavLink
                   to={link.href}
                   className={({ isActive }) => {
-                    return `capitalize w-full ${
-                      isActive ? 'text-primary' : ''
-                    }`;
+                    return `capitalize w-full ${isActive ? 'text-primary' : ''
+                      }`;
                   }}
                 >
                   {link.label}

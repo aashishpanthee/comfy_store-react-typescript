@@ -7,7 +7,7 @@ import { useFormValidation } from '@/hooks/useFormValidation';
 import { useAppDispatch } from '@/redux-store/hooks';
 import { type ReduxStore } from '@/redux-store/store';
 import { loginUser } from '@/redux-store/user/userSlice';
-import { loginValidationRules } from '@/utils/validation/loginValidation';
+import { loginValidationRules } from '@/utils';
 import { AxiosError, AxiosResponse } from 'axios';
 import {
   Form,

@@ -1,3 +1,4 @@
+import { Card, CardContent } from '@/components/ui/card';
 import {
   Carousel,
   CarouselContent,
@@ -5,8 +6,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel';
-import { Card, CardContent } from '@/components/ui/card';
-import { HERO1, HERO2, HERO3, HERO4 } from '@/utils';
+import { HERO1, HERO2, HERO3, HERO4 } from '@/constants/images';
 import Autoplay from 'embla-carousel-autoplay';
 
 const carouselImages = [HERO1, HERO2, HERO3, HERO4];

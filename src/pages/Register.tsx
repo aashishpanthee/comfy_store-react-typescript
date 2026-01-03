@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { axiosInstance } from '@/config';
 import { toast } from '@/hooks/use-toast';
 import { useFormValidation } from '@/hooks/useFormValidation';
-import { registerValidationRules } from '@/utils/validation/registerValidation';
+import { registerValidationRules } from '@/utils';
 import { AxiosError } from 'axios';
 import { ActionFunction, Form, Link, redirect, useActionData } from 'react-router-dom';
 
