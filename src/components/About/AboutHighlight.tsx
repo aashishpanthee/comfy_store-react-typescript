@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import type { AboutHighlightItem } from '@/data/aboutHighlights';
+import type { AboutHighlightItem } from '@/constants/aboutHighlights';
 
 type AboutHighlightProps = AboutHighlightItem;
 

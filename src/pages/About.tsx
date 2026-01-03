@@ -1,6 +1,6 @@
 import AboutHighlight from '@/components/About/AboutHighlight';
 import { Button } from '@/components/ui/button';
-import { ABOUT_HIGHLIGHTS } from '@/data/aboutHighlights';
+import { ABOUT_HIGHLIGHTS } from '@/constants/aboutHighlights';
 import { Link } from 'react-router-dom';
 
 type Props = {};
