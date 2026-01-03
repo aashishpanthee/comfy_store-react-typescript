@@ -1,5 +1,4 @@
 import { FormInput, SubmitBtn } from '@/components';
-import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { axiosInstance } from '@/config';
 import { toast } from '@/hooks/use-toast';
@@ -34,7 +33,7 @@ export const action: ActionFunction = async ({
   }
 };
 
-function Register() {
+function Signup() {
   const { errors, touched, handleBlur, handleSubmit } = useFormValidation(registerValidationRules);
   const actionData = useActionData() as { error?: string } | undefined;
 
@@ -42,7 +41,7 @@ function Register() {
     <section className='grid h-screen place-items-center'>
       <Card className='w-96 bg-muted'>
         <CardHeader>
-          <CardTitle className='text-center'>Register</CardTitle>
+          <CardTitle className='text-center'>Create Account</CardTitle>
         </CardHeader>
         <CardContent>
           <Form method='post' onSubmit={handleSubmit}>
@@ -81,13 +80,11 @@ function Register() {
                 {actionData.error}
               </div>
             )}
-            <SubmitBtn text='Register' className='w-full mt-4' />
+            <SubmitBtn text='Sign up' className='w-full mt-4' />
 
             <p className='mt-4 text-center'>
               Already a member?
-              <Button type='button' asChild variant='link'>
-                <Link to='/login'>Login</Link>
-              </Button>
+              <Link to='/login' className='ml-1 text-primary'>Login</Link>
             </p>
           </Form>
         </CardContent>
@@ -96,4 +93,4 @@ function Register() {
   );
 }
 
-export default Register;
+export default Signup;

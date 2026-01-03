@@ -11,7 +11,7 @@ import {
   Login,
   Orders,
   Products,
-  Register,
+  Signup,
   SingleProduct,
   checkoutAction,
   loadCheckout,
@@ -73,7 +73,7 @@ export const routes = createBrowserRouter([
   },
   {
     path: '/register',
-    element: withSuspense(<Register />, <RegisterCardSkeleton />),
+    element: withSuspense(<Signup />, <RegisterCardSkeleton />),
     errorElement: <Error />,
     action: registerAction,
   },

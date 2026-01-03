@@ -8,7 +8,7 @@ export const Cart = lazy(() => import('@/pages/Cart'));
 export const About = lazy(() => import('@/pages/About'));
 export const Checkout = lazy(() => import('@/pages/Checkout'));
 export const Orders = lazy(() => import('@/pages/Orders'));
-export const Register = lazy(() => import('@/pages/Register'));
+export const Signup = lazy(() => import('@/pages/Signup'));
 export const Login = lazy(() => import('@/pages/Login'));
 
 export const loadProducts = async (args: LoaderFunctionArgs) => {
@@ -42,6 +42,6 @@ export const loginAction = (store: ReduxStore) => async (args: ActionFunctionArg
 };
 
 export const registerAction = async (args: ActionFunctionArgs) => {
-  const { action } = await import('@/pages/Register');
+  const { action } = await import('@/pages/Signup');
   return action(args);
 };
