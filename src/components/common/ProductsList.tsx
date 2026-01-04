@@ -4,7 +4,7 @@ import { Card, CardContent } from '../ui/card';
 const ProductList = () => {
   const { data: products } = useLoaderData() as ProductsResponse;
   return (
-    <div className='mt-12 grid gap-y-8'>
+    <div className='grid mt-12 gap-y-8'>
       {products.map((product) => {
         const { title, price, image, company } = product.attributes;
         const dollarsAmount = formatAsDollars(price);
@@ -12,12 +12,17 @@ const ProductList = () => {
         return (
           <Link key={product.id} to={`/products/${product.id}`}>
             <Card>
-              <CardContent className='p-8 gap-y-4 grid md:grid-cols-3 '>
+              <CardContent className='grid p-8 gap-y-4 md:grid-cols-3 '>
                 <img
                   src={image}
                   alt={title}
-                  className='h-64 w-full md:h-48  md:w-48  rounded-md object-cover'
+                  loading="lazy"
+                  decoding="async"
+                  width={192}
+                  height={256}
+                  className="object-cover w-full h-64 rounded-md md:h-48 md:w-48"
                 />
+
                 <div>
                   <h2 className='text-xl font-semibold capitalize'>{title}</h2>
                   <h4>{company}</h4>
