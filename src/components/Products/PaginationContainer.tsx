@@ -1,4 +1,3 @@
-import { useLoaderData, useLocation } from 'react-router-dom';
 import {
   Pagination,
   PaginationContent,
@@ -9,9 +8,10 @@ import {
 } from '@/components/ui/pagination';
 import {
   type ProductsResponseWithParams,
-  constructUrlParam,
   constructPrevorNextParams,
+  constructUrlParam,
 } from '@/utils';
+import { useLoaderData, useLocation } from 'react-router-dom';
 
 const PaginationContainer = () => {
   const { meta } = useLoaderData() as ProductsResponseWithParams;
@@ -41,7 +41,7 @@ const PaginationContainer = () => {
   });
 
   return (
-    <Pagination className='mt-16'>
+    <Pagination className='mt-8'>
       <PaginationContent>
         <PaginationItem>
           <PaginationPrevious to={prevUrl} />
