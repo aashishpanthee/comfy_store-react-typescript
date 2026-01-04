@@ -1,4 +1,4 @@
-import { ErrorElement, Loading, LoginCardSkeleton, RegisterCardSkeleton } from '@/components';
+import { AboutPageSkeleton, CartPageSkeleton, CheckoutPageSkeleton, ErrorElement, LoginCardSkeleton, OrdersPageSkeleton, ProductsSkeleton, RegisterCardSkeleton, SingleProductSkeleton } from '@/components';
 import { Error, HomeLayout, Landing } from '@/pages';
 import { loader as LandingPageLoader } from '@/pages/Landing';
 import { store } from '@/redux-store/store';
@@ -36,36 +36,36 @@ export const routes = createBrowserRouter([
       },
       {
         path: 'products',
-        element: withSuspense(<Products />, <Loading />),
+        element: withSuspense(<Products />, <ProductsSkeleton />),
         errorElement: <ErrorElement />,
         loader: loadProducts,
       },
       {
         path: 'products/:id',
-        element: withSuspense(<SingleProduct />),
+        element: withSuspense(<SingleProduct />, <SingleProductSkeleton />),
         errorElement: <ErrorElement />,
         loader: loadSingleProduct,
       },
       {
         path: '/cart',
-        element: withSuspense(<Cart />),
+        element: withSuspense(<Cart />, <CartPageSkeleton />),
         errorElement: <ErrorElement />,
       },
       {
         path: '/about',
-        element: withSuspense(<About />),
+        element: withSuspense(<About />, <AboutPageSkeleton />),
         errorElement: <ErrorElement />,
       },
       {
         path: '/checkout',
-        element: withSuspense(<Checkout />),
+        element: withSuspense(<Checkout />, <CheckoutPageSkeleton />),
         errorElement: <ErrorElement />,
         loader: loadCheckout(store),
         action: checkoutAction(store),
       },
       {
         path: '/orders',
-        element: withSuspense(<Orders />),
+        element: withSuspense(<Orders />, <OrdersPageSkeleton />),
         errorElement: <ErrorElement />,
         loader: loadOrders(store),
       },

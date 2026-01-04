@@ -1,6 +1,6 @@
 import { Skeleton } from '../ui/skeleton';
 
-function Loading() {
+function ProductsSkeleton() {
   return (
     <div className='grid gap-8 pt-12 md:grid-cols-2 lg:grid-cols-3 '>
       {Array.from({ length: 9 }).map((_, index) => {
@@ -17,4 +17,4 @@ function Loading() {
     </div>
   );
 }
-export default Loading;
+export default ProductsSkeleton;
