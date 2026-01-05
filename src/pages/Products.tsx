@@ -1,5 +1,6 @@
 import { Filters, PaginationContainer, ProductsContainer, SEO } from '@/components';
 import { axiosInstance } from '@/config';
+import { SEO_CONTENT } from '@/constants/seoContent';
 import { PRODUCTS_URL } from '@/constants/url';
 import {
   type ProductsResponse,
@@ -25,8 +26,8 @@ function Products() {
   return (
     <>
       <SEO
-        title="Products"
-        description="Browse our collection of comfortable furniture and home decor"
+        title={SEO_CONTENT.products.title}
+        description={SEO_CONTENT.products.description}
       />
       <Filters />
       <ProductsContainer />

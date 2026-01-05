@@ -1,5 +1,6 @@
 import { FeaturedProducts, Hero, SEO } from '@/components';
 import { axiosInstance } from '@/config';
+import { SEO_CONTENT } from '@/constants/seoContent';
 import { FEATURED_PRODUCTS_URL } from '@/constants/url';
 import { type ProductsResponse } from '@/utils';
 import { LoaderFunction } from 'react-router-dom';
@@ -15,8 +16,8 @@ function Landing() {
   return (
     <>
       <SEO
-        title="Home"
-        description="Welcome to Comfy Store - Your one-stop shop for comfortable furniture"
+        title={SEO_CONTENT.home.title}
+        description={SEO_CONTENT.home.description}
       />
       <Hero />
       <FeaturedProducts />

@@ -1,6 +1,7 @@
 import { FormInput, SEO, SubmitBtn } from '@/components';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { axiosInstance } from '@/config';
+import { SEO_CONTENT } from '@/constants/seoContent';
 import { toast } from '@/hooks/use-toast';
 import { useFormValidation } from '@/hooks/useFormValidation';
 import { type ReduxStore } from '@/redux-store/store';
@@ -50,8 +51,8 @@ function Login() {
   return (
     <section className='grid h-screen place-items-center'>
       <SEO
-        title="Login"
-        description="Login to your Comfy Store account"
+        title={SEO_CONTENT.login.title}
+        description={SEO_CONTENT.login.description}
       />
       <Card className='w-96 bg-muted'>
         <CardHeader>

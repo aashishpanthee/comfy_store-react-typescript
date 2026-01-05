@@ -1,4 +1,5 @@
 import { CartTotals, CheckoutForm, SectionTitle, SEO } from '@/components';
+import { SEO_CONTENT } from '@/constants/seoContent';
 import { toast } from '@/hooks/use-toast';
 import { useAppSelector } from '@/redux-store/hooks';
 import { type ReduxStore } from '@/redux-store/store';
@@ -21,8 +22,8 @@ const Checkout = () => {
     return (
       <>
         <SEO
-          title="Checkout"
-          description="Your cart is empty"
+          title={SEO_CONTENT.checkoutEmpty.title}
+          description={SEO_CONTENT.checkoutEmpty.description}
         />
         <SectionTitle text='Your cart is empty ☹️' />
       </>
@@ -31,8 +32,8 @@ const Checkout = () => {
   return (
     <>
       <SEO
-        title="Checkout"
-        description="Complete your order and checkout securely"
+        title={SEO_CONTENT.checkout.title}
+        description={SEO_CONTENT.checkout.description}
       />
       <SectionTitle text='Place your order' />
       <div className='grid items-start gap-8 mt-8 md:grid-cols-2'>

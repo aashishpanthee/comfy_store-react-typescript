@@ -3,6 +3,7 @@ import AboutHighlight from '@/components/About/AboutHighlight';
 import { Button } from '@/components/ui/button';
 import { aboutContent } from '@/constants/aboutContent';
 import { ABOUT_HIGHLIGHTS } from '@/constants/aboutHighlights';
+import { SEO_CONTENT } from '@/constants/seoContent';
 import { Link } from 'react-router-dom';
 
 type Props = {};
@@ -11,8 +12,8 @@ function About({ }: Props) {
   return (
     <section>
       <SEO
-        title="About Us"
-        description="Learn more about Comfy Store and our commitment to quality furniture"
+        title={SEO_CONTENT.about.title}
+        description={SEO_CONTENT.about.description}
       />
       <h1 className='flex flex-wrap items-center justify-center gap-2 text-4xl font-bold leading-none tracking-tight sm:gap-x-6 sm:text-6xl '>
         {aboutContent.headingPrefix}

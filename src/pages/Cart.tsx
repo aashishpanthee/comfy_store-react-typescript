@@ -1,5 +1,6 @@
 import { CartItemsList, CartTotals, SectionTitle, SEO } from '@/components';
 import { Button } from '@/components/ui/button';
+import { SEO_CONTENT } from '@/constants/seoContent';
 import { useAppSelector } from '@/redux-store/hooks';
 import { Link } from 'react-router-dom';
 
@@ -14,8 +15,8 @@ const Cart = () => {
     return (
       <>
         <SEO
-          title="Cart"
-          description="Your shopping cart is empty"
+          title={SEO_CONTENT.cartEmpty.title}
+          description={SEO_CONTENT.cartEmpty.description}
         />
         <SectionTitle text='Empty cart ☹️' />
       </>
@@ -24,8 +25,8 @@ const Cart = () => {
   return (
     <>
       <SEO
-        title="Cart"
-        description="Review your shopping cart and proceed to checkout"
+        title={SEO_CONTENT.cart.title}
+        description={SEO_CONTENT.cart.description}
       />
       <SectionTitle text='Shopping Cart' />
       <div className='grid gap-8 mt-8 lg:grid-cols-12'>

@@ -5,6 +5,7 @@ import {
   SEO,
 } from '@/components';
 import { axiosInstance } from '@/config/index';
+import { SEO_CONTENT } from '@/constants/seoContent';
 import { toast } from '@/hooks/use-toast';
 import { ReduxStore } from '@/redux-store/store';
 import { type OrdersResponse } from '@/utils';
@@ -46,8 +47,8 @@ function Orders() {
     return (
       <>
         <SEO
-          title="Orders"
-          description="You have no orders yet"
+          title={SEO_CONTENT.ordersEmpty.title}
+          description={SEO_CONTENT.ordersEmpty.description}
         />
         <SectionTitle text='Please make an order' />
       </>
@@ -56,8 +57,8 @@ function Orders() {
   return (
     <>
       <SEO
-        title="Orders"
-        description="View and track your orders"
+        title={SEO_CONTENT.orders.title}
+        description={SEO_CONTENT.orders.description}
       />
       <SectionTitle text='Your Orders' />
       <OrdersList />
