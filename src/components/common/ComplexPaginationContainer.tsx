@@ -1,19 +1,28 @@
 import {
   Pagination,
   PaginationContent,
+  PaginationEllipsis,
   PaginationItem,
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-  PaginationEllipsis,
 } from '@/components/ui/pagination';
 import {
-  constructUrlParam,
   constructPrevorNextParams,
+  constructUrlParam,
   type OrdersResponse,
 } from '@/utils';
 import { useLoaderData, useLocation } from 'react-router-dom';
 
+/**
+ * A sophisticated pagination component that displays page numbers with ellipsis for large page counts.
+ * Automatically hides when there's only one page or less.
+ * Features:
+ * - Shows first page, current page, and last page
+ * - Displays ellipsis (...) to indicate skipped pages
+ * - Includes Previous and Next navigation buttons
+ * - Preserves URL query parameters during navigation
+ */
 function ComplexPaginationContainer() {
   const { meta } = useLoaderData() as OrdersResponse;
   const { pageCount, page } = meta.pagination;
@@ -21,6 +30,9 @@ function ComplexPaginationContainer() {
 
   if (pageCount < 2) return null;
 
+  /**
+   * Constructs a pagination button/link for a specific page number
+   */
   const constructButton = ({
     pageNumber,
     isActive,
@@ -38,6 +50,10 @@ function ComplexPaginationContainer() {
     );
   };
 
+  /**
+   * Constructs an ellipsis (...) element for the pagination
+   * Used to indicate skipped page numbers in the pagination sequence
+   */
   const constructEllipsis = (key: string): React.ReactNode => {
     return (
       <PaginationItem key={key}>
@@ -46,6 +62,15 @@ function ComplexPaginationContainer() {
     );
   };
 
+  /**
+   * Renders the pagination sequence with smart ellipsis placement
+   * Logic:
+   * 1. Always shows the first page
+   * 2. Shows ellipsis if current page is more than 2 pages away from first
+   * 3. Shows current page if it's not the first or last page
+   * 4. Shows ellipsis if current page is more than 1 page away from last
+   * 5. Always shows the last page
+   */
   const renderPagination = () => {
     let pages: React.ReactNode[] = [];
     // first page
