@@ -10,6 +10,7 @@ export { default as FormRange } from './common/FormRange.tsx';
 export { default as FormSelect } from './common/FormSelect.tsx';
 export { default as ProductsGrid } from './common/ProductsGrid.tsx';
 export { default as ProductsList } from './common/ProductsList.tsx';
+export { default as ScrollToTop } from './common/ScrollToTop.tsx';
 export { default as SectionTitle } from './common/SectionTitle.tsx';
 export { default as SelectProductAmount } from './common/SelectProductAmount.tsx';
 export { default as SelectProductColor } from './common/SelectProductColor.tsx';
