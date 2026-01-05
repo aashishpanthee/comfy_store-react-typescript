@@ -21,6 +21,14 @@ const PaginationContainer = () => {
 
   if (pageCount < 2) return null;
 
+  /**
+   * renderPagination
+   * Transforms an array of page numbers into JSX elements for pagination links.
+   * Each link highlights the currently active page and includes preserved URL parameters.
+   * 
+   * @returns {JSX.Element[]} An array of PaginationItem components, each containing a link to a specific page.
+   *                          The current page is marked as active with styling.
+   */
   const renderPagination = pages.map((pageNumber) => {
     const isActive = pageNumber === page;
     const url = constructUrlParam({ pageNumber, search, pathname });
@@ -33,6 +41,7 @@ const PaginationContainer = () => {
       </PaginationItem>
     );
   });
+
   const { prevUrl, nextUrl } = constructPrevorNextParams({
     currentPage: page,
     pageCount,
