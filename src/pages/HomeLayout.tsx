@@ -1,4 +1,4 @@
-import { Footer, Header, Navbar, ScrollToTop } from '@/components';
+import { Footer, Header, Navbar, ScrollToTop, ScrollToTopButton } from '@/components';
 import { Outlet } from 'react-router-dom';
 
 function HomeLayout() {
@@ -12,6 +12,7 @@ function HomeLayout() {
         <Outlet />
       </main>
       <Footer />
+      <ScrollToTopButton />
     </div>
   );
 }

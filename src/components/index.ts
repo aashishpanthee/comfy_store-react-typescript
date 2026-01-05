@@ -1,3 +1,4 @@
+export { default as ScrollToTopButton } from '../utils/ScrollToTopButton.tsx';
 export { default as CartItemsList } from './Cart/CartItemsList.tsx';
 export { default as CartTotals } from './Cart/CartTotals.tsx';
 export { default as CheckoutForm } from './Checkout/CheckoutForm.tsx';
