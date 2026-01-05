@@ -1,7 +1,7 @@
-import { useAppSelector } from '@/redux-store/hooks';
-import { CartItemsList, SectionTitle, CartTotals } from '@/components';
-import { Link } from 'react-router-dom';
+import { CartItemsList, CartTotals, SectionTitle, SEO } from '@/components';
 import { Button } from '@/components/ui/button';
+import { useAppSelector } from '@/redux-store/hooks';
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
   const user = useAppSelector((store) => store.userState.user);
@@ -11,10 +11,22 @@ const Cart = () => {
   );
 
   if (numItemsInCart === 0) {
-    return <SectionTitle text='Empty cart ☹️' />;
+    return (
+      <>
+        <SEO
+          title="Cart"
+          description="Your shopping cart is empty"
+        />
+        <SectionTitle text='Empty cart ☹️' />
+      </>
+    );
   }
   return (
     <>
+      <SEO
+        title="Cart"
+        description="Review your shopping cart and proceed to checkout"
+      />
       <SectionTitle text='Shopping Cart' />
       <div className='grid gap-8 mt-8 lg:grid-cols-12'>
         <div className='lg:col-span-8'>

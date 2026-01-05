@@ -1,4 +1,4 @@
-import { FeaturedProducts, Hero } from '@/components';
+import { FeaturedProducts, Hero, SEO } from '@/components';
 import { axiosInstance } from '@/config';
 import { FEATURED_PRODUCTS_URL } from '@/constants/url';
 import { type ProductsResponse } from '@/utils';
@@ -14,6 +14,10 @@ export const loader: LoaderFunction = async (): Promise<ProductsResponse> => {
 function Landing() {
   return (
     <>
+      <SEO
+        title="Home"
+        description="Welcome to Comfy Store - Your one-stop shop for comfortable furniture"
+      />
       <Hero />
       <FeaturedProducts />
     </>

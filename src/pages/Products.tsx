@@ -1,4 +1,4 @@
-import { Filters, PaginationContainer, ProductsContainer } from '@/components';
+import { Filters, PaginationContainer, ProductsContainer, SEO } from '@/components';
 import { axiosInstance } from '@/config';
 import { PRODUCTS_URL } from '@/constants/url';
 import {
@@ -24,6 +24,10 @@ export const loader: LoaderFunction = async ({
 function Products() {
   return (
     <>
+      <SEO
+        title="Products"
+        description="Browse our collection of comfortable furniture and home decor"
+      />
       <Filters />
       <ProductsContainer />
       <PaginationContainer />

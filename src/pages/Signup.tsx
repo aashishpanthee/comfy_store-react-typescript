@@ -1,4 +1,4 @@
-import { FormInput, SubmitBtn } from '@/components';
+import { FormInput, SEO, SubmitBtn } from '@/components';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { axiosInstance } from '@/config';
 import { toast } from '@/hooks/use-toast';
@@ -39,6 +39,10 @@ function Signup() {
 
   return (
     <section className='grid h-screen place-items-center'>
+      <SEO
+        title="Sign Up"
+        description="Create a new Comfy Store account"
+      />
       <Card className='w-96 bg-muted'>
         <CardHeader>
           <CardTitle className='text-center'>Create Account</CardTitle>

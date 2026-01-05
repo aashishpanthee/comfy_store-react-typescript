@@ -1,4 +1,4 @@
-import { SelectProductAmount, SelectProductColor } from '@/components';
+import { SelectProductAmount, SelectProductColor, SEO } from '@/components';
 import { Mode } from '@/components/common/SelectProductAmount';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
@@ -49,6 +49,10 @@ const SingleProduct = () => {
   };
   return (
     <section>
+      <SEO
+        title={title}
+        description={description.substring(0, 160)}
+      />
       <div className='flex items-center h-6 gap-x-2'>
         <Button asChild variant='link' size='sm'>
           <Link to='/'>Home</Link>

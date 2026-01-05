@@ -15,6 +15,7 @@ export { default as ScrollToTop } from './common/ScrollToTop.tsx';
 export { default as SectionTitle } from './common/SectionTitle.tsx';
 export { default as SelectProductAmount } from './common/SelectProductAmount.tsx';
 export { default as SelectProductColor } from './common/SelectProductColor.tsx';
+export { default as SEO } from './common/SEO.tsx';
 export { default as SubmitBtn } from './common/SubmitBtn.tsx';
 export { default as FeaturedProducts } from './FeaturedProducts/FeaturedProducts.tsx';
 export { default as Footer } from './Footer/Footer.tsx';
