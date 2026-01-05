@@ -23,22 +23,38 @@ function Header({ }: Props) {
   };
 
   return (
-    <header>
-      <div className='flex justify-center py-2 align-element sm:justify-end'>
-        {/* USER */}
+    <header className='border-b border-border/60 bg-gradient-to-r from-muted/60 via-background to-muted/60 backdrop-blur'>
+      <div className='flex items-center justify-center py-2 text-xs sm:text-sm align-element sm:justify-end'>
         {user ? (
-          <div className='flex items-center gap-x-2 sm:gap-x-8'>
-            <p className='text-xs sm:text-sm'>Hello, {user.username}</p>
-            <Button variant='link' size='sm' onClick={handleLogout}>
+          <div className='flex items-center gap-2 sm:gap-4'>
+            <span className='hidden rounded-full bg-primary/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-primary sm:inline'>
+              Welcome back
+            </span>
+            <p className='text-muted-foreground'>Hi, {user.username}</p>
+            <Button
+              variant='outline'
+              size='sm'
+              className='h-8 px-3 text-xs font-semibold border-border/70 bg-background/80 hover:border-primary/60 hover:text-primary'
+              onClick={handleLogout}
+            >
               Logout
             </Button>
           </div>
         ) : (
-          <div className='flex items-center justify-center -mr-4 gap-x-6'>
-            <Button asChild variant='link' size='sm'>
+          <div className='flex items-center justify-center gap-2 sm:gap-3'>
+            <Button
+              asChild
+              variant='outline'
+              size='sm'
+              className='h-8 px-3 text-xs font-semibold border-border/70 bg-background/80 hover:border-primary/60 hover:text-primary'
+            >
               <Link to='/register'>Sign up</Link>
             </Button>
-            <Button asChild variant='link' size='sm'>
+            <Button
+              asChild
+              size='sm'
+              className='h-8 px-3 text-xs font-semibold shadow-sm bg-primary/90 text-primary-foreground hover:bg-primary'
+            >
               <Link to='/login'>Login</Link>
             </Button>
           </div>
