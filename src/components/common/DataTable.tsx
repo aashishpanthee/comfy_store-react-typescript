@@ -37,7 +37,7 @@ function DataTable<T>({
   title,
   totalCount,
   minTableWidth = '700px',
-  minHeight = '270px md:min-h-[350px]',
+  minHeight = '270px',
   getRowKey,
 }: DataTableProps<T>) {
   return (
@@ -53,9 +53,12 @@ function DataTable<T>({
         </div>
       )}
 
-      <Card className='overflow-hidden overflow-x-auto'>
-        <div className={`min-h-[${minHeight}]`}>
-          <Table className={`min-w-[${minTableWidth}]`}>
+      <Card className='overflow-hidden'>
+        <div
+          className='overflow-x-auto scrollbar-thin scrollbar-thumb-muted scrollbar-track-transparent'
+          style={{ minHeight: minHeight }}
+        >
+          <Table className='w-full' style={{ minWidth: minTableWidth }}>
             {caption && (
               <TableCaption className='pb-4 text-xs sm:text-sm'>{caption}</TableCaption>
             )}
