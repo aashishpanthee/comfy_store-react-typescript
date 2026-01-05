@@ -1,16 +1,17 @@
-import { Header, Navbar } from '@/components';
+import { Footer, Header, Navbar } from '@/components';
 import { Outlet } from 'react-router-dom';
 
 function HomeLayout() {
 
   return (
-    <>
+    <div className='flex flex-col min-h-screen bg-background'>
       <Header />
       <Navbar />
-      <div className='py-20 align-element'>
+      <main className='flex-1 py-20 align-element'>
         <Outlet />
-      </div>
-    </>
+      </main>
+      <Footer />
+    </div>
   );
 }
 

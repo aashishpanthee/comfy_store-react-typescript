@@ -15,6 +15,11 @@ export { default as SelectProductAmount } from './common/SelectProductAmount.tsx
 export { default as SelectProductColor } from './common/SelectProductColor.tsx';
 export { default as SubmitBtn } from './common/SubmitBtn.tsx';
 export { default as FeaturedProducts } from './FeaturedProducts/FeaturedProducts.tsx';
+export { default as Footer } from './Footer/Footer.tsx';
+export { default as FooterBrand } from './Footer/FooterBrand.tsx';
+export { default as FooterLinkColumn } from './Footer/FooterLinkColumn.tsx';
+export { default as FooterNewsletter } from './Footer/FooterNewsletter.tsx';
+export { default as FooterSocialList } from './Footer/FooterSocialList.tsx';
 export { default as Header } from './Header/Header.tsx';
 export { default as Hero } from './Hero/Hero.tsx';
 export { default as HeroCarousel } from './Hero/HeroCarousel.tsx';
